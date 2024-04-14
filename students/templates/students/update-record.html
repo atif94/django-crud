@@ -1,0 +1,16 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card card-body">
+            <h3>Update Record</h3>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

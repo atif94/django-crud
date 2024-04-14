@@ -1,0 +1,64 @@
+{% extends 'students/base.html' %}
+{% block content %}
+
+     <h5> Hello how are you {{user}} </h5>
+     <hr>
+     <a class="btn btn-outline-primary" href="{% url 'create-record'%}">Create a new record</a>
+     <hr>
+    <br>
+
+  <table class="table table-light table-bordered table-hover">
+
+    <thead class="table-light table-hover">
+
+     <tr>
+      <th class="col">ID</th>
+      <th class="col">First Name</th>
+      <th class="col">Last Name</th>
+      <th class="col">Email</th>
+      <th class="col">Phone</th>
+      <th class="col">Address</th>
+      <th class="col">City</th>
+      <th class="col">Province</th>
+      <th class="col">Country</th>
+      <th class="col">Date joined</th>
+      <th class="col">View</th>
+     </tr>
+    </thead>
+
+     <tbody>
+        {% if records %}
+           <tr>
+            {% for record in records %}
+               <td> {{record.id}}</td>
+               <td> {{record.first_name}}</td>
+               <td> {{record.last_name}}</td>
+               <td> {{record.email}}</td>
+               <td> {{record.phone}}</td>
+               <td> {{record.address}}</td>
+               <td> {{record.city}}</td>
+               <td> {{record.province}}</td>
+               <td> {{record.country}}</td>
+               <td> {{record.creation_date}}</td>
+
+
+
+
+
+
+             </tr>
+            {% endfor %}
+
+        {%  endif %}
+
+    </tbody>
+    </table>
+
+
+    {% for record in records %}
+          {{record.id}}
+          {{record.first_name}}
+          {{record.last_name}}
+    {% endfor %}
+
+ {% endblock %}
